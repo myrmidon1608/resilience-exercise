@@ -50,7 +50,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "manufacturing-execution-system:build"
+            "browserTarget": "manufacturing-execution-system:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

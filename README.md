@@ -25,22 +25,22 @@ Once the vessel is emptied this fictional batch will be considered done.
 
 As important as the product of the batch itself is the “Batch Record” which reports the activity for the batch. At the completion of the batch your mini-MES should report a Batch Record that provides the following information:
 
-• Whether the batch was considered successful
-• Actual fill level reached in the vessel
-• Temperature range during the process
-• pH range during the process
-• Pressure range during the process
-• Total time for the process
-• Whether the CPP of +/- 2% for vessel fill level was met
-• Whether the CPP of +/- 1 degree Celsius for maximum temperature was met
-• Whether the CPP of pressure held below 200 kPa was met
+- Whether the batch was considered successful
+- Actual fill level reached in the vessel
+- Temperature range during the process
+- pH range during the process
+- Pressure range during the process
+- Total time for the process
+- Whether the CPP of +/- 2% for vessel fill level was met
+- Whether the CPP of +/- 1 degree Celsius for maximum temperature was met
+- Whether the CPP of pressure held below 200 kPa was met
 
 ### UI Considerations
 
 You should provide controls to the operator to:
 
-• Open or Close the input valve
-• Open or Close the output valve
+- Open or Close the input valve
+- Open or Close the output valve
 
 You should indicate to the operator the next step to be taken and warn as the conditions approach, so that they are ready to act.
 
