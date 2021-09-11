@@ -4,10 +4,12 @@ import { AppComponent } from './app.component';
 import {BioreactorRepoService} from "./services/bioreactor-repo.service";
 import {BroadcastService} from "./services/broadcast.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { BioreactorComponent } from './components/bioreactor/bioreactor.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        BioreactorComponent
     ],
     imports: [
         BrowserModule,

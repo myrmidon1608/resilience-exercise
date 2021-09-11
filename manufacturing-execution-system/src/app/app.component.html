@@ -1,5 +1,8 @@
 <div>
   <h3>{{ title }}</h3>
+  <button (click)="startExecution()">Start Execution</button>
 </div>
-<p>Current Bioreactor: {{ currentBioreactor?.id }}</p>
+<div *ngFor="let bioreactor of bioreactors | keyvalue">
+    <app-bioreactor [bioreactor]="bioreactor.value"></app-bioreactor>
+</div>
 

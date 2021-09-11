@@ -8,16 +8,28 @@ import {Bioreactor} from "./model/bioreactor.model";
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
     private title: string = 'Resilience: Manufacturing Execution System';
-    private currentBioreactor: Bioreactor;
+    private bioreactors: Map<string, Bioreactor> = new Map<string, Bioreactor>();
 
     constructor(private broadcaster: BroadcastService, private bioreactorService: BioreactorRepoService) {
         this.broadcaster.on(BroadcastEventKeys.BioreactorAvailable)
-        .subscribe((it: Bioreactor) => { this.currentBioreactor = it });
+        .subscribe((it: Bioreactor) => { this.updateBioreactor(it); });
     }
 
-    ngOnInit() {
+    startExecution(): void {
         this.bioreactorService.getBioreactorForUse();
+    }
+
+    private updateBioreactor(source: Bioreactor): void {
+        let currentBioreactor: Bioreactor = this.bioreactors.get(source.id);
+        if (!currentBioreactor) {
+            this.bioreactors.set(source.id, source);
+        } else {
+            currentBioreactor.fill_percent = source.fill_percent;
+            currentBioreactor.pH = source.pH;
+            currentBioreactor.pressure = source.pressure;
+            currentBioreactor.temperature = source.temperature;
+        }
     }
 }

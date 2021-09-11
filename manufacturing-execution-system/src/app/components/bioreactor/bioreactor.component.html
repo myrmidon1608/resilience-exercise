@@ -1,0 +1,16 @@
+<div *ngIf="bioreactorId">
+    <hr>
+    <p>{{ bioreactorId }}: {{ bioreactorEvent.batch_status }}</p>
+    <p>
+        <span>Fill %: {{ bioreactorEvent.bioreactor.fill_percent}} </span>,
+        <span>pH: {{ bioreactorEvent.bioreactor.pH }} </span>,
+        <span>Pressure: {{ bioreactorEvent.bioreactor.pressure }} </span>,
+        <span>Temp: {{ bioreactorEvent.bioreactor.temperature }} </span>
+    </p>
+    <div>
+        <button (click)="openInputValve()">Open Input Valve</button>
+        <button (click)="closeInputValve()">Close Input Valve</button>
+        <button (click)="openOutputValve()">Open Output Valve</button>
+        <button (click)="closeOutputValve()">Close Output Valve</button>
+    </div>
+</div>

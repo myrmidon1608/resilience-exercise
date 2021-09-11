@@ -38,10 +38,8 @@ export class BioreactorRepoService {
     }
 
     public setBioreactorInputStatus(id: string, status: ValveStatus): any {
-        this.http.put(this.baseUrl + 'bioreactor/' + id + '/input-valve', { status: status })
-            .subscribe((it: any) => {
-                console.log(it);
-            });
+        this.http.put(this.baseUrl + 'bioreactor/' + id + '/input-valve', { state: status })
+            .subscribe((it: any) => {});
     }
 
     public getBioreactorOutputStatus(id: string): void {
@@ -52,9 +50,7 @@ export class BioreactorRepoService {
     }
 
     public setBioreactorOutputStatus(id: string, status: ValveStatus): any {
-        this.http.put(this.baseUrl + 'bioreactor/' + id + '/output-valve', { status: status })
-            .subscribe((it: any) => {
-                console.log(it);
-            });
+        this.http.put(this.baseUrl + 'bioreactor/' + id + '/output-valve', { state: status })
+            .subscribe((it: any) => {});
     }
 }
