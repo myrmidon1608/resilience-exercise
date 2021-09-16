@@ -9,8 +9,8 @@ import {Bioreactor} from "./model/bioreactor.model";
       styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    private title: string = 'Resilience: Manufacturing Execution System';
-    private bioreactors: Map<string, Bioreactor> = new Map<string, Bioreactor>();
+    private bioreactorLookup: Map<string, Bioreactor> = new Map<string, Bioreactor>();
+    private bioreactors: Bioreactor[] = [];
 
     constructor(private broadcaster: BroadcastService, private bioreactorService: BioreactorRepoService) {
         this.broadcaster.on(BroadcastEventKeys.BioreactorAvailable)
@@ -22,9 +22,10 @@ export class AppComponent {
     }
 
     private updateBioreactor(source: Bioreactor): void {
-        let currentBioreactor: Bioreactor = this.bioreactors.get(source.id);
+        let currentBioreactor: Bioreactor = this.bioreactorLookup.get(source.id);
         if (!currentBioreactor) {
-            this.bioreactors.set(source.id, source);
+            this.bioreactorLookup.set(source.id, source);
+            this.bioreactors.push(this.bioreactorLookup.get(source.id));
         } else {
             currentBioreactor.fill_percent = source.fill_percent;
             currentBioreactor.pH = source.pH;

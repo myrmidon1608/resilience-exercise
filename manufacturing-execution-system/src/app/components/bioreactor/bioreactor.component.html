@@ -7,7 +7,18 @@
         <span>Pressure: {{ bioreactorEvent.bioreactor.pressure }} </span>,
         <span>Temp: {{ bioreactorEvent.bioreactor.temperature }} </span>
     </p>
-    <div>
+    <p *ngIf="displayReport">
+        <span>Batch successful: {{ bioreactorEvent.batch_successful }} </span>,
+        <span>Fill level: {{ bioreactorEvent.fill_level }} </span>,
+        <span>Temp range: {{ bioreactorEvent.end_temp - bioreactorEvent.start_temp }} </span>,
+        <span>pH range: {{ bioreactorEvent.end_pH - bioreactorEvent.start_pH }} </span>,
+        <span>Pressure range: {{ bioreactorEvent.end_pressure - bioreactorEvent.start_pressure }} </span>,
+        <span>Total time: {{ (bioreactorEvent.end_time.getTime() - bioreactorEvent.start_time.getTime()) / 1000 }} seconds</span>,
+        <span>Fill level CPP met: {{ bioreactorEvent.fill_cpp_met }} </span>,
+        <span>Temp CPP met: {{ bioreactorEvent.temp_cpp_met }} </span>,
+        <span>Pressure CPP met: {{ bioreactorEvent.pressure_cpp_met }} </span>
+    </p>
+    <div *ngIf="!inCompleteState">
         <button (click)="openInputValve()">Open Input Valve</button>
         <button (click)="closeInputValve()">Close Input Valve</button>
         <button (click)="openOutputValve()">Open Output Valve</button>

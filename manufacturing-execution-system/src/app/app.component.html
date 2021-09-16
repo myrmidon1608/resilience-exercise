@@ -1,8 +1,8 @@
 <div>
-  <h3>{{ title }}</h3>
+  <h3>Resilience: Manufacturing Execution System</h3>
   <button (click)="startExecution()">Start Execution</button>
 </div>
-<div *ngFor="let bioreactor of bioreactors | keyvalue">
-    <app-bioreactor [bioreactor]="bioreactor.value"></app-bioreactor>
+<div *ngFor="let bioreactor of bioreactors">
+    <app-bioreactor [bioreactor]="bioreactor"></app-bioreactor>
 </div>
 
